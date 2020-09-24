@@ -7,7 +7,8 @@ export default {
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     title: "Mini-iFood-BootstrapVue",
-    meta: [{
+    meta: [
+      {
         charset: "utf-8"
       },
       {
@@ -20,11 +21,13 @@ export default {
         content: ""
       }
     ],
-    link: [{
-      rel: "icon",
-      type: "image/x-icon",
-      href: "/favicon.ico"
-    }]
+    link: [
+      {
+        rel: "icon",
+        type: "image/x-icon",
+        href: "/favicon.ico"
+      }
+    ]
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
@@ -85,6 +88,10 @@ export default {
 
   router: {
     middleware: ["auth"]
+  },
+
+  server: {
+    port: 8000 // default: 3000
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
