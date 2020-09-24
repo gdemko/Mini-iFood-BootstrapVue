@@ -1,18 +1,5 @@
 <template>
-  <svg class="NuxtLogo" width="245" height="180" viewBox="0 0 452 342" xmlns="http://www.w3.org/2000/svg">
-    <path
-      d="M139 330l-1-2c-2-4-2-8-1-13H29L189 31l67 121 22-16-67-121c-1-2-9-14-22-14-6 0-15 2-22 15L5 303c-1 3-8 16-2 27 4 6 10 12 24 12h136c-14 0-21-6-24-12z"
-      fill="#00C58E"
-    />
-    <path
-      d="M447 304L317 70c-2-2-9-15-22-15-6 0-15 3-22 15l-17 28v54l39-67 129 230h-49a23 23 0 0 1-2 14l-1 1c-6 11-21 12-23 12h76c3 0 17-1 24-12 3-5 5-14-2-26z"
-      fill="#108775"
-    />
-    <path
-      d="M376 330v-1l1-2c1-4 2-8 1-12l-4-12-102-178-15-27h-1l-15 27-102 178-4 12a24 24 0 0 0 2 15c4 6 10 12 24 12h190c3 0 18-1 25-12zM256 152l93 163H163l93-163z"
-      fill="#2F495E"
-    />
-  </svg>
+  <svg data-v-6695f8de="" data-v-e530208a="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" version="1.1" shape-rendering="geometricPrecision" fill-rule="evenodd" clip-rule="evenodd" preserveAspectRatio="xMidYMid meet" role="img" focusable="false" class="bv-logo"><title data-v-6695f8de="">BootstrapVue Logo</title> <defs data-v-6695f8de=""><filter data-v-6695f8de="" id="logo-shadow" filterUnits="objectBoundingBox" x="-50%" y="-50%" width="200%" height="200%"><feOffset data-v-6695f8de="" in="SourceAlpha" dx="-10" dy="25" result="ALPHA1"></feOffset> <feMorphology data-v-6695f8de="" in="ALPHA1" operator="dilate" radius="15" result="ALPHA"></feMorphology> <feGaussianBlur data-v-6695f8de="" in="ALPHA" stdDeviation="20" result="DROP"></feGaussianBlur> <feFlood data-v-6695f8de="" in="DROP" flood-color="#333" result="SOLID"></feFlood> <feComposite data-v-6695f8de="" in="DROP" in2="SOLID" operator="in" result="SHADOW1"></feComposite> <feComponentTransfer data-v-6695f8de="" in="SHADOW1" result="SHADOW"><feFuncA data-v-6695f8de="" type="linear" slope="0.55"></feFuncA></feComponentTransfer> <feMerge data-v-6695f8de=""><feMergeNode data-v-6695f8de="" in="SHADOW"></feMergeNode> <feMergeNode data-v-6695f8de="" in="SourceGraphic"></feMergeNode></feMerge></filter></defs> <g data-v-6695f8de=""><g data-v-6695f8de="" filter="url(#logo-shadow)" class="logo-dark-v"><path data-v-6695f8de="" fill="#34495E" d="M747 311L602 562 458 311H227l375 651 376-651z"></path></g> <g data-v-6695f8de="" filter="url(#logo-shadow)" class="logo-purple-v"><path data-v-6695f8de="" fill="#563D7C" fill-rule="nonzero" d="M219 195h762L599 857z"></path> <path data-v-6695f8de="" fill="#ffffff" d="M501 282l132 0c25,0 44,5 59,16 15,12 22,28 22,51 0,14 -3,26 -10,35 -7,10 -16,18 -29,23l0 1c17,3 30,11 38,24 9,12 13,27 13,46 0,11 -2,21 -6,30 -3,9 -9,17 -17,24 -9,6 -19,12 -32,16 -12,4 -28,6 -45,6l-125 0 0 -272 0 0zm48 114l77 0c12,0 21,-4 29,-10 8,-7 11,-16 11,-28 0,-14 -3,-24 -10,-29 -7,-6 -17,-9 -30,-9l-77 0 0 76 0 0zm0 119l84 0c14,0 26,-4 33,-11 8,-8 13,-19 13,-32 0,-14 -4,-24 -13,-31 -8,-8 -19,-11 -33,-11l-84 0 0 85z" class="logo-white-b"></path></g> <g data-v-6695f8de="" filter="url(#logo-shadow)" class="logo-green-v"><path data-v-6695f8de="" fill="#41B883" d="M839 357L600 771 361 357H202l398 690 398-690z"></path></g></g></svg>
 </template>
 
 <style>
