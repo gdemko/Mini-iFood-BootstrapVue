@@ -5,14 +5,15 @@
         <h1 class="h1">Seja bem vindo!</h1>
         <b-form @submit="onSubmit">
           <b-container>
-            <b-row v-for="(total, index) in totais" :key="index">
+            {{products_selecteds}}
+            <b-row v-for="(product_selected, index) in products_selecteds" :key="index">
               <b-col cols="6">
                 <b-form-group
                   id="input-group-1"
                   :label="`Lanche Nº${index +1}`"
                   label-for="input-1"
                 >
-                  <b-form-select v-model="total.lanche" :options="lanches"></b-form-select>
+                  <b-form-select v-model="product_selected.product_id" :options="lanches"></b-form-select>
                 </b-form-group>
               </b-col>
               <b-col cols="4">
@@ -23,18 +24,19 @@
                 >
                   <b-form-input
                     id="input-1"
-                    v-model="total.quantidade"
+                    v-model="product_selected.quantity"
                     type="number"
                     required
                   ></b-form-input>
                 </b-form-group>
               </b-col>
               <b-col cols="2 margin-custom-buttom-destroy">
-                <b-button @click="destroy(index)" :disabled="totais.length == 1" class="text-center" variant="danger" block>-</b-button>
+                <b-button @click="destroy(index)" :disabled="products_selecteds.length == 1" class="text-center" variant="danger" block>-</b-button>
               </b-col>
             </b-row>
             <b-row>
               <b-col>
+                {{valores}}
                 <h3>Total: {{total}}</h3>
               </b-col>
             </b-row>
@@ -65,10 +67,10 @@ export default {
       lanches:[],
       valores: [],
       total: 0,
-      totais: [
+      products_selecteds: [
         {
-          lanche: "",
-          quantidade: ""
+          product_id: "",
+          quantity: ""
         }
       ]
     }
@@ -77,21 +79,28 @@ export default {
     this.getLanches()
   },
   watch: {
-    totais: function (newValue){
+    products_selecteds: function (val){
+      val.map((data) => {
+        if(data.product_id != "")
+        {
+          return this.$axios
+            .$get(
+              `product/${data.product_id}`
+            )
+            .then(data => {
+              this.valores.push(data.order.value)
+            })
+        }
+      });
 
-      console.log('entrei')
-      this.totais.map(data => {
-        let valores = this.$axios
-        .$get(
-          `product/${data.lanche}`
+    },
+    valores: function (val) {
+      if(val.length > 0)
+      {
+        this.total = val.reduce((total, data) =>
+           Number(total) + Number(data)
         )
-        .then(data => {
-          this.valores.push(data.order.value)
-        })
-      })
-      let number = this.valores;
-      console.log(this.valores)
-      this.total = (number).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+      }
     }
   },
   methods:{
@@ -107,26 +116,26 @@ export default {
           "product"
         )
         .then(data => {
-          console.log(data)
           this.lanches = data.order.map((data) => {
-            return {value: data.id, text: data.name + ' - R$' + data.value}
+            return {value: data.id, text: data.name + ' - R$ ' + data.value}
           });
         })
     },
 
     add(){
       let lanche = {
-        id: this.totais.length,
-        lanche: "",
-        quantidade: ""
+        product_id: "",
+        quantity: ""
       }
-      this.totais.push(lanche)
+      this.valores = []
+      this.products_selecteds.push(lanche)
     },
+
     destroy(index)
     {
-      if(this.totais.length != 1)
+      if(this.products_selecteds.length != 1)
       {
-        this.totais.splice(index,1)
+        this.products_selecteds.splice(index,1)
       }
     }
   }
