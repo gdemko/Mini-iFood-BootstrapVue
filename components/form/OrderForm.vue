@@ -134,8 +134,8 @@ export default {
         .$get(
           "product"
         )
-        .then(({order}) => {
-          this.products = order.map(({id, name, category_name, value}) => {
+        .then(({products}) => {
+          this.products = products.map(({id, name, category_name, value}) => {
             return {value:id, title:name + ' - R$ ' +value }
           });
         })
@@ -146,15 +146,15 @@ export default {
         .$get(
           `product/`+id
         )
-        .then(({order, success}) => {
+        .then(({product, success}) => {
           if(success == true)
           {
-            const subtotal = this.add_quantity * order.value
+            const subtotal = this.add_quantity * product.value
             this.add_product_api = {
-              id: order.id,
-              name: order.name,
+              id: product.id,
+              name: product.name,
               quantity: this.add_quantity,
-              value: parseFloat(order.value).toFixed(2),
+              value: parseFloat(product.value).toFixed(2),
               sub_total: subtotal.toFixed(2)
             }
           } else {
