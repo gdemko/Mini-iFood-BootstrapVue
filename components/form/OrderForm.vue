@@ -53,6 +53,15 @@
             </b-col>
           </b-row>
         </template>
+        <template v-slot:description>
+          <b-form-textarea
+            id="textarea"
+            v-model="form.description"
+            placeholder="Descrição..."
+            rows="3"
+            max-rows="6"
+          ></b-form-textarea>
+        </template>
       </card-order-products-selected>
     </b-form>
   </div>
@@ -80,6 +89,7 @@ export default {
       form: {
         id:this.$route.params.edit || null,
         products:[],
+        description:"",
         quantity:[]
       },
       products: [],

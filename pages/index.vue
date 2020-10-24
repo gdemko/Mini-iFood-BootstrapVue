@@ -21,11 +21,12 @@ export default {
   },
   methods: {
     submit(form){
+      console.log(form)
       this.$axios
         .$post(
-          'order', form
+          'ordered', form
         )
-        .then(({success, data, message, error_message}) => {
+        .then(({success, message}) => {
           if(success == true)
           {
             Swal.fire(
@@ -33,12 +34,13 @@ export default {
               message,
               'success'
             ).then(() => {
-                this.$router.push('/order')
+                this.$router.push('/')
             })
           }
         }).catch((error) => {
             this.error_message = error.response.data.error_message;
             console.error(this.error_message)
+            console.error(error)
             Swal.fire(
               'Erro!',
               error.response.data.message,
@@ -46,6 +48,7 @@ export default {
             )
         }).finally(()=>{
           this.$nuxt.$loading.finish()
+          window.location.reload(true)
         })
     }
   },

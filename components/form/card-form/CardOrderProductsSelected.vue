@@ -9,6 +9,7 @@
         <slot name="footer"></slot>
       </template>
     </table-custom>
+    <slot  name="description"></slot>
   </b-card>
 </template>
 
