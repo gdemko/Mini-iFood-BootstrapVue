@@ -146,15 +146,15 @@ export default {
         .$get(
           `product/`+id
         )
-        .then(({success, data, message, error_message}) => {
+        .then(({order, success}) => {
           if(success == true)
           {
-            const subtotal = this.add_quantity * data.value
+            const subtotal = this.add_quantity * order.value
             this.add_product_api = {
-              id: data.id,
-              name: data.name,
+              id: order.id,
+              name: order.name,
               quantity: this.add_quantity,
-              value: parseFloat(data.value).toFixed(2),
+              value: parseFloat(order.value).toFixed(2),
               sub_total: subtotal.toFixed(2)
             }
           } else {
