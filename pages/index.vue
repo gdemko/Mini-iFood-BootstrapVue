@@ -1,16 +1,56 @@
 <template>
   <b-container class="bv-example-row">
-    <b-row class="text-center">
+    <b-row>
       <b-col>
-        <h1 class="h1">Home</h1>
+        <loader v-if="loading" />
+        <order-form @change="submit" title="Adicionar Pedido" :error-message="error_message"></order-form>
       </b-col>
     </b-row>
   </b-container>
 </template>
 
-
 <script>
-export default {
+import Swal from 'sweetalert2'
 
+export default {
+  data() {
+    return {
+      error_message:"",
+      loading:false
+    }
+  },
+  methods: {
+    submit(form){
+      console.log(form)
+      this.$axios
+        .$post(
+          'ordered', form
+        )
+        .then(({success, message}) => {
+          if(success == true)
+          {
+            Swal.fire(
+              'Registrado!',
+              message,
+              'success'
+            ).then(() => {
+                this.$router.push('/')
+            })
+          }
+        }).catch((error) => {
+            this.error_message = error.response.data.error_message;
+            console.error(this.error_message)
+            console.error(error)
+            Swal.fire(
+              'Erro!',
+              error.response.data.message,
+              'error'
+            )
+        }).finally(()=>{
+          this.$nuxt.$loading.finish()
+          window.location.reload(true)
+        })
+    }
+  },
 }
 </script>
