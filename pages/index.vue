@@ -26,7 +26,8 @@ export default {
         .$post(
           'ordered', form
         )
-        .then(({success, message}) => {
+        .then(({success, message, data}) => {
+          console.log('===>>>', data)
           if(success == true)
           {
             Swal.fire(
@@ -34,7 +35,7 @@ export default {
               message,
               'success'
             ).then(() => {
-                this.$router.push('/')
+                this.$router.push(`/pedido-finalizado/${data.id}`)
             })
           }
         }).catch((error) => {
@@ -48,7 +49,6 @@ export default {
             )
         }).finally(()=>{
           this.$nuxt.$loading.finish()
-          window.location.reload(true)
         })
     }
   },

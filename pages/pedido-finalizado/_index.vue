@@ -1,6 +1,5 @@
 <template>
     <div>
-
         <b-container class="bv-example-row">
             <b-row class="text-center mb-1">
                 <b-col>
@@ -9,15 +8,13 @@
                     </b-card>
                 </b-col>
             </b-row>
-
             <b-row class="text-center mb-1">
                 <b-col>
                     <b-card block bg-variant="danger" text-variant="white" class="text-center">
-                        <b-card-text>Número do Pedido: ######</b-card-text>
+                        <b-card-text>Número do Pedido: {{this.$route.params.index}}</b-card-text>
                     </b-card>
                 </b-col>
             </b-row>
-
             <b-row class="text-center mb-1">
                 <b-col>
                     <b-card block bg-variant="info" text-variant="white" class="text-center">
@@ -26,7 +23,6 @@
                 </b-col>
             </b-row>
         </b-container>
-
     </div>
 </template>
 
