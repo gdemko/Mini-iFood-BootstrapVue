@@ -22,6 +22,7 @@ $ yarn dev
 
 > Nao fechar o terminal
 
+```
 Acesso local
 
 [Localhost Mini-iFood-BootstrapVue](http://localhost:8000)
