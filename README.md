@@ -7,6 +7,12 @@
 cd Projects/Mini-iFood-BootstrapVue/
 ```
 
+Utilizar versao do node 14.20
+
+```
+nvm use 14.20
+```
+
 ```bash
 # install dependencies
 $ yarn install
